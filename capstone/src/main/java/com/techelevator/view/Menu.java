@@ -9,6 +9,7 @@ public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
+	private static double totalMoneyFed;
 
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
@@ -49,5 +50,21 @@ public class Menu {
 		}
 		out.print(System.lineSeparator() + "Please choose an option >>> ");
 		out.flush();
+	}
+
+	public void feedMoney() {
+
+		while (true) {
+			if (in.hasNextLine()) {
+				Double cash = Double.parseDouble(in.nextLine());
+				totalMoneyFed += cash;
+				System.out.println("Current Money Provided: " + "$" + totalMoneyFed);
+				break;
+			} else {
+				System.out.println("Current Money Provided: " + "$" + totalMoneyFed);
+				break;
+			}
+
+		}
 	}
 }

@@ -13,6 +13,11 @@ public class VendingMachineCLI {
 	private static final String MAIN_MENU_OPTION_EXIT = "Exit";
 	private static final String[] MAIN_MENU_OPTIONS = { MAIN_MENU_OPTION_DISPLAY_ITEMS, MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_EXIT };
 
+	private static final String FEED_MONEY = "Feed Money";
+	private static final String SELECT_PRODUCT = "Select Product";
+	private static final String FINISH_TRANSACTION = "Finish Transaction";
+	private static final String[] PURCHASE_MENU_OPTIONS = {FEED_MONEY, SELECT_PRODUCT, FINISH_TRANSACTION};
+
 	private Menu menu;
 
 	public VendingMachineCLI(Menu menu) {
@@ -26,7 +31,18 @@ public class VendingMachineCLI {
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				displayItems();
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-				// do purchase
+				String purchaseChoice = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+				while (true){
+					if (purchaseChoice.equals(FEED_MONEY)){
+						System.out.println("Please enter amount in full dollars ");
+						menu.feedMoney();
+						break;
+					} else if (purchaseChoice.equals(SELECT_PRODUCT)){
+
+					} else {
+						break;
+					}
+				}
 			} else if (choice.equals(MAIN_MENU_OPTION_EXIT)){
 				break;
 			}

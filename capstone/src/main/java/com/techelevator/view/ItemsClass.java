@@ -36,15 +36,15 @@ public class ItemsClass {
     }
 
 
-    public int setInventory(){
-
-
-        //if item is purchased item -1
-
-        //if quantity is 0, print SOLD OUT
-
-        //return quantity
-    }
+//    public int setInventory(){
+//
+//
+//        //if item is purchased item -1
+//
+//        //if quantity is 0, print SOLD OUT
+//
+//        //return quantity
+//    }
 
 
 
