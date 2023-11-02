@@ -51,7 +51,7 @@ public class VendingMachineCLI {
 					} else if (purchaseChoice.equals(SELECT_PRODUCT)){
 
 						//if ()
-						menu.selectProduct();
+						menu.addToList();
 						break;
 					} else {
 						break;

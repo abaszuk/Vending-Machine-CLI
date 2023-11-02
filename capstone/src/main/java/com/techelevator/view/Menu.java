@@ -113,7 +113,7 @@ public class Menu {
 		for (ItemsClass item: items){
 
 			if (item.getQuantity() == 0) {
-				System.out.println(item.getLocation() + "|Item: " + item.getName() + " |Price: " + item.getPrice() + "|" + "SOLD OUT!");
+				System.out.println(item.getLocation() + "| Item: " + item.getName() + " |Price: " + item.getPrice() + "|" + "SOLD OUT!");
 			} else {
 				System.out.println(item.getLocation() + "| Item: " + item.getName() + " |Price: " + item.getPrice());
 			}
@@ -125,12 +125,20 @@ public class Menu {
 		while (true){
 			if (in.hasNextLine()){
 				String productSelection = in.nextLine();
-				if (productSelection.equals(items)){
+				for (ItemsClass item : items) {
+					if (item.getLocation().equals(productSelection) && totalMoneyFed >= item.getPrice()) {
+						totalMoneyFed -= item.getPrice();
+						System.out.println(item.getName() + " Item Price: " + item.getPrice() + " Money Remaining: " + totalMoneyFed + " " + item.getSound());
+						break;
+					} else if (item.getLocation().equals(productSelection) && totalMoneyFed < item.getPrice()) {
+						System.out.println("Insufficient Funds!");
+						break;
+					}
 
-			} else {
-				break;
-			}
+				}
+
 		}
+		break;
 
 		//if they have been purchased, quantity count --
 
