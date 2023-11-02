@@ -5,14 +5,16 @@ public class ItemsClass {
     private String location;
     private Double price;
     private String type;
+    private String sound;
     private int quantity = 5;
 
-    public ItemsClass(String name, String location, Double price, String type, int quantity){
+    public ItemsClass(String name, String location, Double price, String type, int quantity, String sound){
         this.name = name;
         this.location = location;
         this.price = price;
         this.type = type;
         this.quantity = quantity;
+        this.sound = sound;
     }
 
     public String getName(){
@@ -30,10 +32,16 @@ public class ItemsClass {
     public int getQuantity(){
         return quantity;
     }
+    public String getSound(){
+        return sound;
+    }
 
     public void setQuantity(int quantity){
         this.quantity = quantity;
     }
+
+
+    //public String
 
 
 //    public int setInventory(){

@@ -1,5 +1,7 @@
 package com.techelevator.view;
 
+import com.techelevator.VendingMachineCLI;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -66,5 +68,41 @@ public class Menu {
 			}
 
 		}
+	}
+
+
+	public void selectProduct(){
+		VendingMachineCLI.addToList();
+		System.out.println("Please enter a valid item location for desired item (Character + Number) ex B3 ");
+		//show list of products available and inventory amount by calling
+		while (true){
+			if (in.hasNextLine()){
+				String productSelection = in.nextLine();
+				break;
+			} else {
+				break;
+			}
+		}
+
+		//prompt the user to input valid key
+
+
+		//if the item doesnt exist, the customer is informed and returned to the purchase menu
+
+
+		//if product is sold out, customer is informed and returned to the purchase menu
+
+
+		//if product is available dispense return money remaining in addition to the values from inventory
+
+		//also return the message affiliated with the item type
+
+
+
+
+
+
+
+
 	}
 }
