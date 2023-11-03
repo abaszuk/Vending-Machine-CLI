@@ -14,7 +14,7 @@ public class Menu {
 	private PrintWriter out;
 	private Scanner in;
 	public double totalMoneyFed;
-	public String destinationFile = "C:\\Users\\Student\\workspace\\oct-blue-capstone-1-team-1\\capstone\\Log.txt";
+
 
 
 
@@ -66,6 +66,7 @@ public class Menu {
 			if (in.hasNextLine()) {
 				Double cash = Double.parseDouble(in.nextLine());
 				totalMoneyFed += cash;
+				Log.run("FEED MONEY", cash, totalMoneyFed);
 				System.out.println("Current Money Provided: " + "$" + totalMoneyFed);
 				break;
 			} else {
@@ -75,44 +76,46 @@ public class Menu {
 
 		}
 	}
-
+	private List<ItemsClass> items = new ArrayList<>();
 	public void addToList() {
-		List<ItemsClass> items = new ArrayList<>();
 
-		Chips potatoCrisps = new Chips("Potato Crisps", "A1", 3.05, "Chips", 5, "Crunch Crunch, Yum!");
-		Chips stackers = new Chips("Stackers", "A2", 1.45, "Chips", 5, "Crunch Crunch, Yum!");
-		Chips grainWaves = new Chips("Grain Waves", "A3", 2.75, "Chips", 5, "Crunch Crunch, Yum!");
-		Chips cloudPopcorn = new Chips("Cloud Popcorn", "A4", 3.65, "Chips", 5, "Crunch Crunch, Yum!");
-		Candy moonpie = new Candy("Moonpie", "B1", 1.80, "Candy", 5, "Munch Munch, Yum!");
-		Candy cowtales = new Candy("Cowtales", "B2", 1.50, "Candy", 5, "Munch Munch, Yum!");
-		Candy wonkaBar = new Candy("Wonka Bar", "B3", 1.50, "Candy", 5, "Munch Munch, Yum!");
-		Candy crunchie = new Candy("Crunchie", "B4", 1.75, "Candy", 5, "Munch Munch, Yum!");
-		Drinks cola = new Drinks("Cola", "C1", 1.25, "Drinks", 5, "Glug Glug, Yum!");
-		Drinks drSalt = new Drinks("Dr. Salt", "C2", 1.50, "Drinks", 5, "Glug Glug, Yum!");
-		Drinks mountainMelter = new Drinks("Mountain Melter", "C3", 1.50, "Drinks", 5, "Glug Glug, Yum!");
-		Drinks heavy = new Drinks("Heavy", "C4", 1.50, "Drinks", 5, "Glug Glug, Yum!");
-		Gum uChews = new Gum("U-Chews", "D1", 0.85, "Gum", 5, "Chew Chew, Yum!");
-		Gum littleLeagueChew = new Gum("Little League Chew", "D2", 0.95, "Gum", 5, "Chew Chew, Yum!");
-		Gum chiclets = new Gum("Chiclets", "D3", 0.75, "Gum", 5, "Chew Chew, Yum!");
-		Gum triplemint = new Gum("Triplemint", "D4", 0.75, "Gum", 5, "Chew Chew, Yum!");
+		if (items.size() == 0) {
 
-		items.add(potatoCrisps);
-		items.add(stackers);
-		items.add(grainWaves);
-		items.add(cloudPopcorn);
-		items.add(moonpie);
-		items.add(cowtales);
-		items.add(wonkaBar);
-		items.add(crunchie);
-		items.add(cola);
-		items.add(drSalt);
-		items.add(mountainMelter);
-		items.add(heavy);
-		items.add(uChews);
-		items.add(littleLeagueChew);
-		items.add(chiclets);
-		items.add(triplemint);
 
+			Chips potatoCrisps = new Chips("Potato Crisps", "A1", 3.05, "Chips", 5, "Crunch Crunch, Yum!");
+			Chips stackers = new Chips("Stackers", "A2", 1.45, "Chips", 5, "Crunch Crunch, Yum!");
+			Chips grainWaves = new Chips("Grain Waves", "A3", 2.75, "Chips", 5, "Crunch Crunch, Yum!");
+			Chips cloudPopcorn = new Chips("Cloud Popcorn", "A4", 3.65, "Chips", 5, "Crunch Crunch, Yum!");
+			Candy moonpie = new Candy("Moonpie", "B1", 1.80, "Candy", 5, "Munch Munch, Yum!");
+			Candy cowtales = new Candy("Cowtales", "B2", 1.50, "Candy", 5, "Munch Munch, Yum!");
+			Candy wonkaBar = new Candy("Wonka Bar", "B3", 1.50, "Candy", 5, "Munch Munch, Yum!");
+			Candy crunchie = new Candy("Crunchie", "B4", 1.75, "Candy", 5, "Munch Munch, Yum!");
+			Drinks cola = new Drinks("Cola", "C1", 1.25, "Drinks", 5, "Glug Glug, Yum!");
+			Drinks drSalt = new Drinks("Dr. Salt", "C2", 1.50, "Drinks", 5, "Glug Glug, Yum!");
+			Drinks mountainMelter = new Drinks("Mountain Melter", "C3", 1.50, "Drinks", 5, "Glug Glug, Yum!");
+			Drinks heavy = new Drinks("Heavy", "C4", 1.50, "Drinks", 5, "Glug Glug, Yum!");
+			Gum uChews = new Gum("U-Chews", "D1", 0.85, "Gum", 5, "Chew Chew, Yum!");
+			Gum littleLeagueChew = new Gum("Little League Chew", "D2", 0.95, "Gum", 5, "Chew Chew, Yum!");
+			Gum chiclets = new Gum("Chiclets", "D3", 0.75, "Gum", 5, "Chew Chew, Yum!");
+			Gum triplemint = new Gum("Triplemint", "D4", 0.75, "Gum", 5, "Chew Chew, Yum!");
+
+			items.add(potatoCrisps);
+			items.add(stackers);
+			items.add(grainWaves);
+			items.add(cloudPopcorn);
+			items.add(moonpie);
+			items.add(cowtales);
+			items.add(wonkaBar);
+			items.add(crunchie);
+			items.add(cola);
+			items.add(drSalt);
+			items.add(mountainMelter);
+			items.add(heavy);
+			items.add(uChews);
+			items.add(littleLeagueChew);
+			items.add(chiclets);
+			items.add(triplemint);
+		}
 		//loop through items and determine if they have been purchased
 		for (ItemsClass item : items) {
 
@@ -136,6 +139,9 @@ public class Menu {
 				for (ItemsClass item : items) {
 					if (item.getLocation().equals(productSelection) && totalMoneyFed >= item.getPrice() && item.getQuantity() > 0) {
 						totalMoneyFed -= item.getPrice();
+						String itemName =  item.getName();
+						double itemPrice = item.getPrice();
+						Log.run(itemName, itemPrice, totalMoneyFed);
 						item.setQuantity(item.getQuantity() - 1);
 						System.out.println(item.getName() + " Item Price: " + item.getPrice() + " Money Remaining: " + totalMoneyFed + " " + item.getSound());
 
@@ -180,5 +186,6 @@ public class Menu {
 
 		//set totalMoneyFed to zero
 		totalMoneyFed -= change;
+		Log.run("GIVE CHANGE", totalMoneyFed, change);
 	}
 }
