@@ -6,7 +6,7 @@ public class ItemsClass {
     private Double price;
     private String type;
     private String sound;
-    private int quantity = 5;
+    private int quantity;
 
     public ItemsClass(String name, String location, Double price, String type, int quantity, String sound){
         this.name = name;

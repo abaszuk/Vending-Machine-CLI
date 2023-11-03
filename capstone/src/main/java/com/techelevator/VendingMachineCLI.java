@@ -49,11 +49,10 @@ public class VendingMachineCLI {
 						menu.feedMoney();
 						break;
 					} else if (purchaseChoice.equals(SELECT_PRODUCT)){
-
-						//if ()
 						menu.addToList();
 						break;
-					} else {
+					} else if (purchaseChoice.equals(FINISH_TRANSACTION)){
+						menu.finishTransaction();
 						break;
 					}
 				}

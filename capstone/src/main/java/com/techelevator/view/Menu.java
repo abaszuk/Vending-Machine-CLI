@@ -13,7 +13,11 @@ public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
-	private static double totalMoneyFed;
+	public double totalMoneyFed;
+	public String destinationFile = "C:\\Users\\Student\\workspace\\oct-blue-capstone-1-team-1\\capstone\\Log.txt";
+
+
+
 
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
@@ -110,65 +114,71 @@ public class Menu {
 		items.add(triplemint);
 
 		//loop through items and determine if they have been purchased
-		for (ItemsClass item: items){
+		for (ItemsClass item : items) {
 
 			if (item.getQuantity() == 0) {
 				System.out.println(item.getLocation() + "| Item: " + item.getName() + " |Price: " + item.getPrice() + "|" + "SOLD OUT!");
 			} else {
-				System.out.println(item.getLocation() + "| Item: " + item.getName() + " |Price: " + item.getPrice());
+				System.out.println(item.getLocation() + "| Item: " + item.getName() + " |Price: " + item.getPrice() + " " + item.getQuantity());
 			}
 		}
 
 
 		System.out.println("Please enter a valid item location for desired item (Character + Number) ex B3 ");
+		System.out.println("Please enter 'Exit' to go back to the main menu");
 		//show list of products available and inventory amount by calling
-		while (true){
-			if (in.hasNextLine()){
+		while (true) {
+			if (in.hasNextLine()) {
 				String productSelection = in.nextLine();
+				if (productSelection.equalsIgnoreCase("Exit")) {
+					break;
+				}
 				for (ItemsClass item : items) {
-					if (item.getLocation().equals(productSelection) && totalMoneyFed >= item.getPrice()) {
+					if (item.getLocation().equals(productSelection) && totalMoneyFed >= item.getPrice() && item.getQuantity() > 0) {
 						totalMoneyFed -= item.getPrice();
+						item.setQuantity(item.getQuantity() - 1);
 						System.out.println(item.getName() + " Item Price: " + item.getPrice() + " Money Remaining: " + totalMoneyFed + " " + item.getSound());
-						break;
+
 					} else if (item.getLocation().equals(productSelection) && totalMoneyFed < item.getPrice()) {
 						System.out.println("Insufficient Funds!");
+						break;
+					} else if (item.getQuantity() <= 0) {
+						System.out.println("SOLD OUT!!");
 						break;
 					}
 
 				}
 
+			}
+			break;
+
+			//if they have been purchased, quantity count --
+
+			//else - quantity count = quantity count
+
 		}
-		break;
-
-		//if they have been purchased, quantity count --
-
-		//else - quantity count = quantity count
-
 	}
+	public void finishTransaction(){
+		//take totalMoneyFed and set it to new variable
+		int change = (int)(totalMoneyFed * 100);
 
 
-	//public void selectProduct(){
+		//Implement logic to distribute change by dollars, quarters, dimes, nickles using smallest amount of coins possible
+		int quarters = change / 25;
+		change %= 25;
 
+		int dime = change / 10;
+		change %= 10;
 
-		//prompt the user to input valid key
+		int nickels = change / 5;
+		change %= 5;
 
+		System.out.println("Here is your change!");
+		System.out.println("Quarters: " + quarters);
+		System.out.println("Dimes: " + dime);
+		System.out.println("Nickels " + nickels);
 
-		//if the item doesnt exist, the customer is informed and returned to the purchase menu
-
-
-		//if product is sold out, customer is informed and returned to the purchase menu
-
-
-		//if product is available dispense return money remaining in addition to the values from inventory
-
-		//also return the message affiliated with the item type
-
-
-
-
-
-
-
-
+		//set totalMoneyFed to zero
+		totalMoneyFed -= change;
 	}
 }
