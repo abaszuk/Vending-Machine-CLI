@@ -4,6 +4,8 @@ import java.awt.print.PrinterGraphics;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Log {
@@ -14,8 +16,26 @@ public class Log {
 
     }
 
+    long currentTimeMillis = System.currentTimeMillis();
+    Date date = new Date(currentTimeMillis);
+    public static String formatDateTime(Date date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss a");
+        return sdf.format(date);
+    }
+
+    public static String Clock(long args) {
+        Date currentDate = new Date();
+        String formattedDateTime = formatDateTime(currentDate);
+        return formattedDateTime;
+    }
+
+
+
     public static void run(String option, double price, double remainingChange) {
         File file = new File("C:\\Users\\Student\\workspace\\oct-blue-capstone-1-team-1\\capstone\\Log.txt");
+
+        String currentTime = Clock(System.currentTimeMillis());
+
         try (PrintWriter writer = new PrintWriter(new FileOutputStream(file, true))){
 //   Each purchase must generate a line in a file called Log.txt.
 //   The lines must follow the format shown in the following example.
@@ -28,7 +48,7 @@ public class Log {
 //            01/01/2019 12:01:25 PM Cowtales B2 $1.50 $6.75
 //            01/01/2019 12:01:35 PM GIVE CHANGE: $6.75 $0.00
             while (true){
-                writer.println(option + ": $" + price + " $" + remainingChange);
+                writer.println(currentTime + " " + option + ": $" + price + " $" + remainingChange);
                 break;
             }
 

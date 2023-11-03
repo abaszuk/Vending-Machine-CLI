@@ -52,7 +52,7 @@ public class Menu {
 
 	private void displayMenuOptions(Object[] options) {
 		out.println();
-		for (int i = 0; i < options.length; i++) {
+		for (int i = 0; i < options.length-1; i++) {
 			int optionNum = i + 1;
 			out.println(optionNum + ") " + options[i]);
 		}
@@ -187,5 +187,20 @@ public class Menu {
 		//set totalMoneyFed to zero
 		totalMoneyFed -= change;
 		Log.run("GIVE CHANGE", totalMoneyFed, change);
+	}
+
+	public void salesReport(){
+		//Needs to display Item Sold, Quantity of Item Sold, Total Sales
+		//Call our list items in for each loop
+		double totalSales = 0;
+		for (ItemsClass item: items){
+			if (item.getQuantity() <= 5 && item.getQuantity() >= 0){
+				int quantity = 5 - item.getQuantity();
+				totalSales = totalSales + item.getPrice();
+				System.out.println(item.getName() + "|" + quantity);
+			}
+		}
+		System.out.println("**TOTAL SALES** $" + totalSales);
+
 	}
 }
