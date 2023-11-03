@@ -19,7 +19,8 @@ public class VendingMachineCLI {
 	private static final String FEED_MONEY = "Feed Money";
 	private static final String SELECT_PRODUCT = "Select Product";
 	private static final String FINISH_TRANSACTION = "Finish Transaction";
-	private static final String[] PURCHASE_MENU_OPTIONS = {FEED_MONEY, SELECT_PRODUCT, FINISH_TRANSACTION};
+	private static final String EMPTY = "";
+	private static final String[] PURCHASE_MENU_OPTIONS = {FEED_MONEY, SELECT_PRODUCT, FINISH_TRANSACTION, EMPTY};
 
 
 
@@ -54,6 +55,8 @@ public class VendingMachineCLI {
 						break;
 					} else if (purchaseChoice.equals(FINISH_TRANSACTION)){
 						menu.finishTransaction();
+						break;
+					} else if (purchaseChoice.equals(EMPTY)) {
 						break;
 					}
 				}

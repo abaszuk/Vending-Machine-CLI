@@ -196,7 +196,7 @@ public class Menu {
 		for (ItemsClass item: items){
 			if (item.getQuantity() <= 5 && item.getQuantity() >= 0){
 				int quantity = 5 - item.getQuantity();
-				totalSales = totalSales + item.getPrice();
+				totalSales += quantity * item.getPrice();
 				System.out.println(item.getName() + "|" + quantity);
 			}
 		}
