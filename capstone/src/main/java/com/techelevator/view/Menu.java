@@ -132,7 +132,7 @@ public class Menu {
 		//show list of products available and inventory amount by calling
 		while (true) {
 			if (in.hasNextLine()) {
-				String productSelection = in.nextLine();
+				String productSelection = in.nextLine().toUpperCase();
 				if (productSelection.equalsIgnoreCase("Exit")) {
 					break;
 				}
